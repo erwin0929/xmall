@@ -9,7 +9,7 @@
           <input type="number" class="input" placeholder="价格" v-model="min">
           <span style="margin: 0 5px"> - </span>
           <input type="number" placeholder="价格" v-model="max">
-          <el-button class="buy-now" type="primary" size="small" @btnClick="sortByPrice(1)">确定</el-button>
+          <el-button class="buy-now" type="primary" size="small" @click="sortByPrice(1)">确定</el-button>
         </div>
       </div>
     </div>

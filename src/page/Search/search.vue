@@ -29,7 +29,8 @@
           <input type="number" class="input" placeholder="价格" v-model="min">
           <span style="margin: 0 5px"> - </span>
           <input type="number" placeholder="价格" v-model="max">
-          <y-button text="确定" classStyle="main-btn" @btnClick="reset" style="margin-left: 10px;"></y-button>
+          <!--<y-button text="确定" classStyle="main-btn" @btnClick="reset" style="margin-left: 10px;"></y-button>-->
+          <el-button class="buy-now" type="primary" size="small" @click="sortByPrice(1)">确定</el-button>
         </div>
       </div>
     </div>
@@ -182,10 +183,13 @@
     }
   }
 </script>
-<style lang="scss" rel="stylesheet/scss" scoped>
+<style lang="scss" type="text/scss" scoped>
   @import "../../assets/style/mixin";
   @import "../../assets/style/theme";
-
+  .buy-now{
+    width: 100px;
+    margin-left: 15px
+  }
   .nav {
     height: 60px;
     line-height: 60px;

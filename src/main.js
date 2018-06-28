@@ -40,7 +40,7 @@ Vue.config.productionTip = false
 const whiteList = ['home', 'goods', 'login', 'register', 'goodsDetails', 'search', 'refreshsearch']
 router.beforeEach(function (to, from, next) {
   // 设置标题
-  document.title = from.meta.title
+  document.title = to.meta.title
   let userId = localStorage.getItem('userId')
   if (userId) {
     data.getData()

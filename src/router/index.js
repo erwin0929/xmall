@@ -23,7 +23,7 @@ export default new Router({
       name: 'index',
       redirect: '/home',
       children: [
-        {path: 'home', component: Home},
+        {path: 'home', component: Home, meta: {title: '首页'}},
         // 商品列表
         {path: 'goods/:cid', component: GoodS, name: 'Goods', meta: {title: '商品列表'}},
         // 商品详细页
@@ -60,6 +60,6 @@ export default new Router({
     },
     // 提交订单页,未完成!
     {path: '/checkout', name: 'Checkout', component: checkout, meta: {title: '提交订单'}},
-    {path: '*', redirect: '/home'}
+    {path: '*', redirect: '/home', meta: {title: '首页'}}
   ]
 })
