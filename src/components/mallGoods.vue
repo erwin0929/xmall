@@ -1,0 +1,97 @@
+<template>
+  <div class="good-item">
+    <div style="">
+      <div class="good-img">
+        <router-link :to="{name: 'goodsDetails', query: {productId: msg.productId}}">
+          <img v-lazy="msg.productImageBig" :alt="msg.productName">
+        </router-link>
+      </div>
+      <h6 class="good-title" v-html="msg.productName"></h6>
+      <h3 class="sub-title ellipsis">{{msg.subTitle}}</h3>
+      <div class="good-price pr">
+        <div class="ds pa">
+          <router-link :to="{name: 'goodsDetails', query: {productId: msg.productId}}">
+            <y-button text="查看详情" style="margin: 0 5px"></y-button>
+          </router-link>
+        </div>
+        <p><span style="font-size:14px">￥</span>{{Number(msg.salePrice).toFixed(2)}}</p>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  import YButton from '/components/YButton'
+  export default {
+    props: {
+      msg: {
+        salePrice: 0,
+        productName: ''
+      }
+    },
+    components: {
+      YButton
+    }
+  }
+</script>
+<style lang="scss" type="text/scss" scoped>
+  @import "../assets/style/mixin";
+  @import "../assets/style/theme";
+
+  .good-item {
+    background: #fff;
+    width: 25%;
+    transition: all .5s;
+    height: 430px;
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 1px 1px 20px #999;
+      z-index: 99;
+      .good-price p {
+        display: none;
+      }
+      .ds {
+        display: flex;
+      }
+    }
+    .ds {
+      @extend %block-center;
+      width: 100%;
+      display: none;
+    }
+
+    .good-img {
+      img {
+        margin: 50px auto 10px;
+        @include wh(206px);
+        display: block;
+      }
+    }
+    .good-price {
+      margin: 15px 0;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      color: #d44d44;
+      font-family: Arial;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .good-title {
+      line-height: 1.2;
+      font-size: 16px;
+      color: #424242;
+      margin: 0 auto;
+      padding: 0 14px;
+      text-align: center;
+      overflow: hidden;
+    }
+    h3 {
+      text-align: center;
+      line-height: 1.2;
+      font-size: 12px;
+      color: #d0d0d0;
+      padding: 10px;
+    }
+
+  }
+</style>
