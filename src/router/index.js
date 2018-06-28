@@ -13,7 +13,6 @@ const support = () => import('/page/User/children/support.vue')
 const checkout = () => import('/page/Checkout/checkout.vue')
 const Search = () => import('/page/Search/search.vue')
 const Aihuishou = () => import('/page/User/children/aihuishou.vue')
-const RefreshSearch = () => import('/page/Refresh/refreshsearch.vue')
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -26,25 +25,23 @@ export default new Router({
       children: [
         {path: 'home', component: Home},
         // 商品列表
-        {path: 'goods/:cid', component: GoodS, name: 'Goods'},
+        {path: 'goods/:cid', component: GoodS, name: 'Goods', meta: {title: '商品列表'}},
         // 商品详细页
-        {path: 'goodsDetails', name: 'goodsDetails', component: goodsDetails}
+        {path: 'goodsDetails', name: 'goodsDetails', component: goodsDetails, meta: {title: '商品详情'}}
       ]
     },
     // 登录注册
-    {path: '/login', name: 'login', component: Login},
-    {path: '/register', name: 'register', component: Register},
+    {path: '/login', name: 'login', component: Login, meta: {title: '登录'}},
+    {path: '/register', name: 'register', component: Register, meta: {title: '注册'}},
     {
       path: '/order',
       name: 'order',
       component: () => import('../page/Order/order'),
       // 搜索页
       children: [
-        {path: '/search', name: 'Search', component: Search}
+        {path: '/search', name: 'Search', component: Search, meta: {title: '搜索'}}
       ]
     },
-    // 辅助搜索
-    {path: '/refreshsearch', name: 'refreshsearch', component: RefreshSearch},
     // 个人页面,登录才有
     {
       path: '/user',
@@ -52,17 +49,17 @@ export default new Router({
       component: user,
       children: [
         // 收货地址
-        {path: 'addressList', name: 'AddressList', component: addressList},
+        {path: 'addressList', name: 'AddressList', component: addressList, meta: {title: '收货地址'}},
         // 优惠券
-        {path: 'coupon', name: 'Coupon', component: coupon},
+        {path: 'coupon', name: 'Coupon', component: coupon, meta: {title: '优惠券'}},
         // 售后服务
-        {path: 'support', name: 'Support', component: support},
+        {path: 'support', name: 'Support', component: support, meta: {title: '售后服务'}},
         // 以旧换新
-        {path: 'aihuishou', name: 'Aihuishou', component: Aihuishou}
+        {path: 'aihuishou', name: 'Aihuishou', component: Aihuishou, meta: {title: '以旧换新'}}
       ]
     },
     // 提交订单页,未完成!
-    {path: '/checkout', name: 'Checkout', component: checkout},
+    {path: '/checkout', name: 'Checkout', component: checkout, meta: {title: '提交订单'}},
     {path: '*', redirect: '/home'}
   ]
 })

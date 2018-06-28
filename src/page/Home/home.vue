@@ -1,58 +1,55 @@
 <template>
   <div class="home">
-
-  <div v-loading="loading" element-loading-text="加载中..." v-if="!error">
-    <!-- banner -->
-    <div class="banner" >
-      <el-carousel :interval="5000" :autoplay="false" arrow="always" height="500">
-        <el-carousel-item v-for="(item, index) in banner" :key="item.productId">
-          <router-link :to="{name: 'goodsDetails', query: {productId: item.productId}}">
-            <img class="img1" :src="item.banner">
-          </router-link>
-        </el-carousel-item>
-      </el-carousel>
+    <div v-loading="loading" element-loading-text="加载中..." v-if="!error">
+      <!-- banner -->
+      <div class="banner" >
+        <el-carousel :interval="5000" :autoplay="true" arrow="always" height="500">
+          <el-carousel-item v-for="item in banner" :key="item.productId">
+            <router-link :to="{name: 'goodsDetails', query: {productId: item.productId}}">
+              <img class="img1" :src="item.banner">
+            </router-link>
+          </el-carousel-item>
+        </el-carousel>
+      </div>
+      <!-- 四连坐 -->
+      <div class="activity-panel">
+        <ul class="box">
+          <li class="content" v-for="item in choose" :key="item.productId" >
+            <router-link :to="{name: 'goodsDetails', query: {productId: item.productId}}">
+              <img class="i" :src="item.productImageBig">
+            </router-link>
+          </li>
+        </ul>
+      </div>
+      <!-- 热门商品 -->
+      <section class="w mt30 clearfix">
+        <y-shelf title="热门商品">
+          <div slot="content" class="hot">
+            <mall-goods :msg="item" v-for="item in hot" :key="item.productId"></mall-goods>
+          </div>
+        </y-shelf>
+      </section>
+      <!-- 官方精选 -->
+      <section class="w mt30 clearfix">
+        <y-shelf title="官方精选">
+          <div slot="content" class="floors" >
+            <mall-goods :msg="item" v-for="item in guanfang" :key="item.productId"></mall-goods>
+          </div>
+        </y-shelf>
+      </section>
     </div>
-    <!-- 四连坐 -->
-    <div class="activity-panel">
-      <ul class="box">
-        <li class="content" v-for="item in choose" :key="item.productId" >
-          <router-link :to="{name: 'goodsDetails', query: {productId: item.productId}}">
-            <img class="i" :src="item.productImageBig">
-          </router-link>
-        </li>
-      </ul>
-    </div>
-    <!-- 热门商品 -->
-    <section class="w mt30 clearfix">
-      <y-shelf title="热门商品">
-        <div slot="content" class="hot">
-          <mall-goods :msg="item" v-for="item in hot" :key="item.productId"></mall-goods>
-        </div>
-      </y-shelf>
-    </section>
-    <!-- 官方精选 -->
-    <section class="w mt30 clearfix">
-      <y-shelf title="官方精选">
-        <div slot="content" class="floors" >
-          <mall-goods :msg="item" v-for="item in guanfang" :key="item.productId"></mall-goods>
-        </div>
-      </y-shelf>
-    </section>
-  </div>
-
     <div class="no-info" v-if="error">
       <div class="no-data">
         <img src="/static/images/error.png">
         <br> 抱歉！出错了...
       </div>
     </div>
-
     <el-dialog
       title="通知"
       :visible.sync="dialogVisible"
       width="30%"
       style="width:70%;margin:0 auto">
-      <span>首页已升级！XPay个人支付收款系统已上线，赶快去支付体验吧！</span>
+      <span>欢迎光临本页</span>
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" @click="dialogVisible = false">知道了</el-button>
       </span>
@@ -64,7 +61,6 @@
   import data from '../../mock/index'
   import YShelf from '/components/shelf'
   import mallGoods from '/components/mallGoods'
-  import { setStore, getStore } from '/utils/storage.js'
   export default {
     data () {
       return {
@@ -73,75 +69,9 @@
         choose: [],
         guanfang: [],
         hot: [],
-        mark: 0,
-        bgOpt: {
-          px: 0,
-          py: 0,
-          w: 0,
-          h: 0
-        },
         home: [],
         loading: false,
-        notify: '1',
-        dialogVisible: false,
-        timer: ''
-      }
-    },
-    methods: {
-      autoPlay () {
-        this.mark++
-        if (this.mark > this.banner.length - 1) {
-          // 当遍历到最后一张图片置零
-          this.mark = 0
-        }
-      },
-      play () {
-        // 每2.5s自动切换
-        this.timer = setInterval(this.autoPlay, 2500)
-      },
-      change (i) {
-        this.mark = i
-      },
-      startTimer () {
-        this.timer = setInterval(this.autoPlay, 2500)
-      },
-      stopTimer () {
-        clearInterval(this.timer)
-      },
-      bgOver (e) {
-        this.bgOpt.px = e.offsetLeft
-        this.bgOpt.py = e.offsetTop
-        this.bgOpt.w = e.offsetWidth
-        this.bgOpt.h = e.offsetHeight
-      },
-      bgMove (dom, eve) {
-        let bgOpt = this.bgOpt
-        let X, Y
-        let mouseX = eve.pageX - bgOpt.px
-        let mouseY = eve.pageY - bgOpt.py
-        if (mouseX > bgOpt.w / 2) {
-          X = mouseX - (bgOpt.w / 2)
-        } else {
-          X = mouseX - (bgOpt.w / 2)
-        }
-        if (mouseY > bgOpt.h / 2) {
-          Y = bgOpt.h / 2 - mouseY
-        } else {
-          Y = bgOpt.h / 2 - mouseY
-        }
-        dom.style['transform'] = `rotateY(${X / 50}deg) rotateX(${Y / 50}deg)`
-        dom.style.transform = `rotateY(${X / 50}deg) rotateX(${Y / 50}deg)`
-      },
-      bgOut (dom) {
-        dom.style['transform'] = 'rotateY(0deg) rotateX(0deg)'
-        dom.style.transform = 'rotateY(0deg) rotateX(0deg)'
-      },
-      showNotify () {
-        var value = getStore('notify')
-        if (this.notify !== value) {
-          this.dialogVisible = true
-          setStore('notify', this.notify)
-        }
+        dialogVisible: false
       }
     },
     mounted () {
@@ -157,10 +87,6 @@
             this.choose = choose
           }
         })
-      this.showNotify()
-    },
-    created () {
-      this.play()
     },
     components: {
       YShelf,

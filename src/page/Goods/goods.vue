@@ -13,14 +13,13 @@
         </div>
       </div>
     </div>
-
     <div v-loading="loading" element-loading-text="加载中..." style="min-height: 35vw;">
       <div class="img-item" v-if="!noResult">
         <!--商品-->
         <div class="goods-box w">
+          <!-- 商品循环 -->
           <mall-goods v-for="(item, index) in goods" :key="index" :msg="item"></mall-goods>
         </div>
-
         <el-pagination
           v-if="!noResult&&!error"
           @size-change="handleSizeChange"
@@ -37,26 +36,12 @@
           <img src="/static/images/no-search.png">
           <br> 抱歉！暂时还没有商品
         </div>
-        <section class="section">
-          <y-shelf :title="recommendPanel.name">
-            <div slot="content" class="recommend">
-              <mall-goods :msg="item" v-for="(item,i) in recommendPanel.panelContents" :key="i"></mall-goods>
-            </div>
-          </y-shelf>
-        </section>
       </div>
       <div class="no-info" v-if="error">
         <div class="no-data">
           <img src="/static/images/error.png">
           <br> 抱歉！出错了...
         </div>
-        <section class="section">
-          <y-shelf :title="recommendPanel.name">
-            <div slot="content" class="recommend">
-              <mall-goods :msg="item" v-for="(item,i) in recommendPanel.panelContents" :key="i"></mall-goods>
-            </div>
-          </y-shelf>
-        </section>
       </div>
     </div>
   </div>
@@ -78,15 +63,13 @@
         max: '',
         loading: true,
         timer: null,
-        windowHeight: null,
-        windowWidth: null,
-        recommendPanel: [],
         sort: '',
         currentPage: 1,
         total: 0,
         pageSize: 8
       }
     },
+    // 定义一个组件钩子 2.2新增, 当动态参数cid发生改变时触发该函数,根据cid重新读取数据,并且进行跳转
     beforeRouteUpdate (to, from, next) {
       this.loading = true
       this._getAllGoods(to.params.cid)
@@ -149,14 +132,7 @@
       }
     },
     created () {
-      this.windowHeight = window.innerHeight
-      this.windowWidth = window.innerWidth
       this._getAllGoods()
-      // recommend().then(res => {
-      //   let data = res.result
-      //   this.recommendPanel = data[0]
-      // })
-      this.recommendPanel = {}
     },
     components: {
       mallGoods,

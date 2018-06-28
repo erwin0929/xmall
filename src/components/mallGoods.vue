@@ -1,3 +1,4 @@
+<!-- 列表循环组件 -->
 <template>
   <div class="good-item">
     <div style="">
@@ -11,7 +12,7 @@
       <div class="good-price pr">
         <div class="ds pa">
           <router-link :to="{name: 'goodsDetails', query: {productId: msg.productId}}">
-            <y-button text="查看详情" style="margin: 0 5px"></y-button>
+            <el-button type="primary" size="small">查看详情</el-button>
           </router-link>
         </div>
         <p><span style="font-size:14px">￥</span>{{Number(msg.salePrice).toFixed(2)}}</p>
@@ -20,16 +21,12 @@
   </div>
 </template>
 <script>
-  import YButton from '/components/YButton'
   export default {
     props: {
       msg: {
         salePrice: 0,
         productName: ''
       }
-    },
-    components: {
-      YButton
     }
   }
 </script>

@@ -6,11 +6,7 @@ Vue.use(Vuex)
 
 const state = {
   login: false,   // 是否登录
-  userInfo: null, // 用户信息
-  elLeft: 0,
-  elTop: 0,
-  moveImgUrl: null,
-  cartPositionL: 0
+  userInfo: null // 用户信息
 }
 
 export default new Vuex.Store({

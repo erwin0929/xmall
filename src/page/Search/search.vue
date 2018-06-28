@@ -20,7 +20,6 @@
         </div>
       </div>
     </div>
-
     <div class="nav">
       <div class="w">
         <a href="javascript:;" :class="{active:sortType===1}" @click="reset()">综合排序</a>
@@ -34,14 +33,12 @@
         </div>
       </div>
     </div>
-    
     <div v-loading="loading" element-loading-text="加载中..." style="min-height: 35vw;">
       <div  class="img-item" v-if="!noResult" >
         <!--商品-->
         <div class="goods-box w">
           <mall-goods v-for="(item,i) in goods" :key="i" :msg="item"></mall-goods>
         </div>
-
         <el-pagination
           v-if="!noResult&&!error"
           @size-change="handleSizeChange"
@@ -102,8 +99,6 @@
         searching: true,
         timer: null,
         sortType: 1,
-        windowHeight: null,
-        windowWidth: null,
         sort: '',
         recommendPanel: [],
         currentPage: 1,
@@ -124,6 +119,9 @@
         this.loading = true
       },
       _getSearch () {
+        this.loading = true
+        // 得到查询字段,根据关键字搜索数据
+        this.key = this.$route.query.key
         let params = {
           params: {
             key: this.key,
@@ -166,17 +164,14 @@
         this._getSearch()
       }
     },
-    created () {
-    },
     mounted () {
-      this.windowHeight = window.innerHeight
-      this.windowWidth = window.innerWidth
-      this.key = this.$route.query.key
+      // 数据请求
       this._getSearch()
-      // recommend().then(res => {
-      //   let data = res.result
-      //   this.recommendPanel = data[0]
-      // })
+    },
+    watch: {
+      '$route' () {
+        this._getSearch()
+      }
     },
     components: {
       mallGoods,

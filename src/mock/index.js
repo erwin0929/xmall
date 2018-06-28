@@ -20,7 +20,6 @@ export default {
       } else {
         list = Goods.list.slice(0)
       }
-      // cid === 1184 ? list = BrandSide.list.slice(0) : list = Goods.list.slice(0)
       // 1: 0, 5;  2: 5,5, ; 3: 10 5
       // 根据规律计算出截取值index,以及截取数量就是每页显示的数量pageSize
       let index = (page - 1) * pageSize
