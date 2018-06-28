@@ -10,15 +10,15 @@
 ├── package.json 
 ├── src
 │   ├── App.vue 入口模板文件
-│   ├── assets  静态资源,字体和scss
-│   ├── common 公用的头部和尾部
+│   ├── assets  静态资源,字体和scss
+│   ├── common 公用的头部和尾部
 │   ├── components 公用组件
 │   ├── main.js 入口文件
-│   ├── mock 随机数据生成,模拟接口的文件
+│   ├── mock 随机数据生成,模拟接口的文件
 │   ├── page 各页面
 │   ├── router 路由目录
-│   ├── store vuex状态管理目录
-│   └── utils 操作localstoge的方法
+│   ├── store vuex状态管理目录
+│   └── utils 操作localstoge的方法
 └── static
     ├── images 图片
     └── svg svg图片
@@ -49,38 +49,13 @@
 * 制表符为2个空格的长度
 * 诸多规则,不详解
 
-> main.js 入口文件
+> main.js 入口文件 (节选)
 
 ```
-import Vue from 'vue'
-import App from './App'
-import router from './router'
-import store from './store/'
-// 图片懒加载
+// 图片懒加载
 import VueLazyload from 'vue-lazyload'
-import VueCookie from 'vue-cookie'
-import axios from 'axios'
-import data from './mock/index'
 // 按需加载Elementui组件
-import { Button, FormItem, Form, Pagination, Checkbox, Icon, Autocomplete, Loading, Message, Notification, Steps, Step, Table, TableColumn, Input, InputNumber, Dialog, Select, Option, Carousel, CarouselItem } from 'element-ui'
-Vue.use(Button)
-Vue.use(Pagination)
-Vue.use(Checkbox)
-Vue.use(Icon)
-Vue.use(Autocomplete)
-Vue.use(Steps)
-Vue.use(FormItem)
-Vue.use(Form)
-Vue.use(Step)
-Vue.use(Table)
-Vue.use(TableColumn)
-Vue.use(Input)
-Vue.use(InputNumber)
-Vue.use(Dialog)
-Vue.use(Select)
-Vue.use(Option)
-Vue.use(CarouselItem)
-Vue.use(Carousel)
+import { ButtonInputNumber, Dialog, Select, Option, Carousel, CarouselItem }from 'element-ui'
 Vue.use(Loading.directive)
 Vue.prototype.$loading = Loading.service
 Vue.prototype.$notify = Notification
@@ -127,7 +102,7 @@ new Vue({
 
 ```
 
-* 性能起见,按需引入了ElementUi的组件。
+* 性能起见,按需引入了ElementUi的组件。
 * 引入了vueLazyLoad,并配置了默认显示图片。
 * 定义全局导航守卫:
     1. 定义白名单,这些白名单页面无需登录也可访问,根据token来判断是否登录,如果游客访问白名单以外的页面强制push到登录页。
@@ -166,24 +141,12 @@ new Vue({
 * 定义顶级路由出口,所有页面都由此而出。
 * 将Vue实例挂载到该div#app上。
 
-> 路由配置 router/index.js 
+> 路由配置 router/index.js (节选)
 
 ```
 import Vue from 'vue'
 import Router from 'vue-router'
 const Index = () => import('/page/index.vue')
-const Login = () => import('/page/Login/login.vue')
-const Register = () => import('/page/Login/register.vue')
-const Home = () => import('../page/Home/home.vue')
-const GoodS = () => import('/page/Goods/goods.vue')
-const goodsDetails = () => import('/page/Goods/goodsDetails.vue')
-const user = () => import('/page/User/user.vue')
-const addressList = () => import('/page/User/children/addressList.vue')
-const coupon = () => import('/page/User/children/coupon.vue')
-const support = () => import('/page/User/children/support.vue')
-const checkout = () => import('/page/Checkout/checkout.vue')
-const Search = () => import('/page/Search/search.vue')
-const Aihuishou = () => import('/page/User/children/aihuishou.vue')
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -323,110 +286,6 @@ export default {
     5. theme.scss 主题文件,存放了颜色
 
 > common目录
-
-公共页脚
-footer.vue 
-```
-<template>
-  <div class="footer">
-    <div class="container">
-      <div class="siteinfo">
-        <ul class="c0">
-          <h3 class="c1">购物指南</h3>
-          <ul>
-            <li class="c2"><a class="c3">购物流程</a></li>
-            <li class="c2"><a class="c3">会员介绍</a></li>
-            <li class="c2"><a class="c3">生活旅行</a></li>
-          </ul>
-        </ul>
-        <ul class="c0">
-          <h3 class="c1">配送方式</h3>
-          <ul>
-            <li class="c2"><a class="c3">上门自提</a></li>
-            <li class="c2"><a class="c3">配送查询</a></li>
-            <li class="c2"><a class="c3">海外配送</a></li>
-          </ul>
-        </ul>
-        <ul class="c0">
-          <h3 class="c1">支付方式</h3>
-          <ul>
-            <li class="c2"><a class="c3" target="_blank">货到付款</a></li>
-            <li class="c2"><a class="c3" target="_blank">在线支付</a></li>
-            <li class="c2"><a class="c3" target="_blank">分期付款</a></li>
-          </ul>
-        </ul>
-        <ul class="c0">
-          <h3 class="c1">售后服务</h3>
-          <ul>
-            <li class="c2"><a class="c3" target="_blank" href="http://xpay.exrick.cn">xxx</a></li>
-            <li class="c2"><a class="c3" target="_blank" href="http://shouji.baidu.com/software/11783429.html">xxx</a></li>
-            <li class="c2"><a class="c3" target="_blank" href="https://github.com/Exrick">xxx</a></li>
-          </ul>
-        </ul>
-        <ul class="c0">
-          <h3 class="c1">友情链接</h3>
-          <ul>
-            <li class="c2"><a class="c3">xxx</a></li>
-            <li class="c2"><a class="c3">xxx</a></li>
-            <li class="c2"><a class="c3">xxx</a></li>
-          </ul>
-        </ul>
-        <ul class="c0">
-          <h3 class="c1">关注我吧</h3>
-          <ul>
-            <li class="c2"><a class="c3" target="_blank">腾讯 QQ</a></li>
-            <li class="c2"><a class="c3" target="_blank">新浪微博</a></li>
-            <li class="c2"><a class="c3" target="_blank">官方邮箱</a></li>
-          </ul>
-        </ul>
-      </div>
-    </div>
-  </div>
-</template>
-<style lang="scss" rel="stylesheet/scss" scoped>
-  .footer {
-    padding: 50px 0 20px;
-    border-top: 1px solid #e6e6e6;
-    background: #fafafa;
-    margin-top: 60px;
-    height: 350px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .container {
-    width: 1220px;
-  }
-  .siteinfo {
-    height: 100px;
-    padding: 50px 0 130px;
-    border-bottom: 1px solid #e6e6e6;
-    position: relative;
-    display: flex;
-    justify-content: center;
-  }
-  .c0 {
-    width: 149px;
-    line-height: 1;
-    float: left;
-  }
-  .c1 {
-    color: #646464;
-    font-size: 12px;
-    padding: 0 0 14px;
-  }
-  .c2 {
-    color: #c3c3c3;
-    font-size: 12px;
-    padding: 6px 0;
-  }
-  .c3 {
-    color: #969696;
-  }
-</style>
-
-```
-
 
 header.vue 节选
 ```
@@ -911,7 +770,7 @@ return [
 虽然实际项目中不会由前端人员来开发后端接口,但是这些代码对于我来说都是宝贵的体验,通过一些列算法来获得最终需要的数据,可以增进对js函数对js的理解,对算法的理解,这是我所想要的。
 
 
-> page目录存放了各页面
+> page目录存放了各页面
 
 > index.vue 入口页
 
