@@ -204,8 +204,6 @@
       transition: all .15s ease-out;
       text-decoration: none;
     }
-    a:hover {
-    }
   }
   
   .banner, .banner span, .banner div {
