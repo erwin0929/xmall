@@ -2,27 +2,21 @@
   width: 1220px;
   margin: 0 auto;
 }
-
 .fl {
   float: left;
 }
-
 .fr {
   float: right;
 }
-
 .pr {
   position: relative;
 }
-
 .pa {
   position: absolute;
 }
-
 .active {
   color: #c81623;
 }
-
 .clearfix:after {
   content: '';
   display: block;
@@ -30,17 +24,14 @@
   line-height: 0;
   visibility: hidden;
 }
-
 .clearfix {
   *zoom: 1
 }
-
 .ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
 // 删除按钮
 .del-btn {
   display: block;
@@ -54,12 +45,10 @@
     background-position: -75px -60px;
   }
 }
-
 .layout-container {
   min-height: 400px;
   background: #E6E6E6;
 }
-
 .gray-box {
   overflow: hidden;
   background: #fff;

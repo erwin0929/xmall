@@ -47,7 +47,6 @@
     </div>
   </div>
 </template>
-<script src="../../../static/geetest/gt.js"></script>
 <script>
 import axios from 'axios'
 import data from '../../mock/index'
