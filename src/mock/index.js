@@ -4,7 +4,7 @@ import { Goods, BrandSide } from './data/goods'
 import { RegisterUser } from './data/register'
 
 // 开启请求延迟
-const MockAda = new MockAdapter(axios, { delayResponse: 300 })
+const MockAda = new MockAdapter(axios, { delayResponse: 200 })
 
 // 导出该函数,并在导入处执行。即可模拟后端返回
 export default {
