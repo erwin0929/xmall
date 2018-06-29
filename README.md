@@ -13,7 +13,7 @@
 ├── package.json 
 ├── src
 │   ├── App.vue 入口模板文件
-│   ├── assets  静态资源,字体和scss
+│   ├── assets  静态资源,字体,图片和scss
 │   ├── common 公用的头部和尾部
 │   ├── components 公用组件
 │   ├── main.js 入口文件
@@ -37,7 +37,7 @@
 * Es6
 * Sass
 * ElementUi
-* axios-mock-adapter (接受前端发出的请求和参数,模拟后端接口返回)
+* axios-mock-adapter (接受前端发出的请求和参数,模拟后端接口返回,没错后端接口也是我写)
 
 > 为保证代码质量,该项目使用了eslint的standard规则,总结的代码规范如下
 
