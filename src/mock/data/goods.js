@@ -27,11 +27,11 @@ export const Goods = Mock.mock({
       // 售价
       'salePrice|10-19999.2': 1,
       // 列表图
-      'productImageBig': `@dataImage(250x250,这是测试图片)`,
+      'productImageBig': `@dataImage(250x250,这是mock生成的随机图片)`,
       // 库存
       'limitNum|1-5': 1,
       // banner图
-      'banner': `@dataImage(1200x500,这是测试图片)`
+      'banner': `@dataImage(1200x500,这是mock生成的随机图片)`
     }
   ]
 })
@@ -62,7 +62,7 @@ export const BrandSide = Mock.mock({
       // 售价
       'salePrice|10-19999.2': 1,
       // 列表图
-      'productImageBig': `@dataImage(250x250,这是测试图片)`,
+      'productImageBig': `@dataImage(250x250,这是mock生成的随机图片)`,
       // 库存
       'limitNum|1-5': 1
     }
