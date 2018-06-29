@@ -23,7 +23,7 @@
           </ul>
           <!--登陆-->
           <div style="margin-top: 25px">
-            <el-button class="login-btn marg" type="" @click="login">{{logintxt}}</el-button>
+            <el-button class="login-btn marg" type="" :loading="loginLoading" @click="login">{{logintxt}}</el-button>
           </div>
           <!--返回-->
           <div>
@@ -54,6 +54,7 @@ export default {
         userPwd: '',
         errMsg: ''
       },
+      loginLoading: false,
       autoLogin: false,
       logintxt: '登录'
     }
@@ -74,6 +75,8 @@ export default {
       this.$message.error({
         message: m
       })
+      this.loginLoading = false
+      this.logintxt = '登录'
     },
     // 读取本地存储,若remember为真,则读取该数据自动填充表单
     getRemembered () {
@@ -97,6 +100,8 @@ export default {
       }
     },
     login () {
+      this.loginLoading = true
+      this.logintxt = '登录中,请稍后...'
       this.rememberPass()
       if (!this.ruleForm.userName || !this.ruleForm.userPwd) {
         this.message('账号或者密码不能为空!')
