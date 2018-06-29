@@ -10,6 +10,9 @@
           </div>
           <!-- 搜索框 -->
           <div class="right-box">
+            <div class="search-notice">
+              根据商品名搜索哦,乱写是搜不到的哦!这里搜索还不是很完美
+            </div>
             <div class="nav-list">
               <!--
                 自动完成搜索
@@ -108,6 +111,11 @@
   .router-link-active{
     font-weight: bold;
   }
+  .search-notice{
+    font-size: 15px;
+    color: #fff;
+    margin-right: 10px;
+  }
   .header-box {
     background: $head-bgc;
     background-image: -webkit-linear-gradient(#000, #121212);
@@ -177,6 +185,7 @@
     }
     .right-box {
       display: flex;
+      align-items: center;
     }
     .nav-aside {
       display: flex;
