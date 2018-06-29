@@ -11,8 +11,8 @@
           <!-- 搜索框 -->
           <div class="right-box">
             <div class="nav-list">
-              <!-- 
-                自动完成搜索 
+              <!--
+                自动完成搜索
                 1. icon设置搜索图标
                 2. fetch-suggestions设置搜索建议
                 4. on-icon-click 点击icon触发
@@ -129,7 +129,8 @@
       display: flex;
       align-items: center;
       > a {
-        background: url(/static/images/global-logo-red@2x.png) no-repeat 50%;
+        /*background: url(/static/images/global-logo-red@2x.png) no-repeat 50%;*/
+        background: url(../assets/images/global-logo-red@2x.png) no-repeat 50%;
         background-size: cover;
         display: block;
         @include wh(50px, 40px);

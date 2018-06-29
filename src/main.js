@@ -32,7 +32,7 @@ Vue.prototype.$notify = Notification
 Vue.prototype.$message = Message
 Vue.use(VueCookie)
 Vue.use(VueLazyload, {
-  loading: '/static/images/load.gif'
+  loading: '/src/assets/images/load.gif'
 })
 Vue.config.productionTip = false
 // 定义全局前置守卫
