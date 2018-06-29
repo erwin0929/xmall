@@ -33,13 +33,13 @@
       </div>
       <div class="no-info" v-if="noResult">
         <div class="no-data">
-          <img src="/static/images/no-search.png">
+          <img src="../../assets/images/no-search.png">
           <br> 抱歉！暂时还没有商品
         </div>
       </div>
       <div class="no-info" v-if="error">
         <div class="no-data">
-          <img src="/static/images/error.png">
+          <img src="../../assets/images/no-data.png">
           <br> 抱歉！出错了...
         </div>
       </div>
