@@ -164,7 +164,7 @@ export default {
     }
   }
   .wrapper {
-    background: url(/static/images/bg_9b9dcb65ff.png) repeat;
+    background: url(#{$img-path}bg_9b9dcb65ff.png) repeat;
     background-size: 100px;
     min-height: 800px;
     min-width: 630px;
@@ -185,7 +185,7 @@ export default {
     overflow: visible;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
     position: relative;
-    background-image: url(/static/images/smartisan_4ada7fecea.png);
+    background-image: url(#{$img-path}smartisan_4ada7fecea.png);
     background-size: 140px;
     background-position: top center;
     background-repeat: no-repeat;
@@ -248,7 +248,7 @@ export default {
 @media screen and (min-width: 737px),
   screen and (-webkit-max-device-pixel-ratio: 1.9) and (max-width: 736px) and (min-device-width: 737px) {
   .wrapper {
-    background: url(/static/images/con-bg_04f25dbf8e.jpg) repeat-x;
+    background: url(#{$img-path}con-bg_04f25dbf8e.jpg) repeat-x;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -256,7 +256,7 @@ export default {
     right: 0;
   }
   .dialog {
-    background: url(/static/images/dialog-gray-bg.png) #fff bottom repeat-x;
+    background: url(#{$img-path}dialog-gray-bg.png) #fff bottom repeat-x;
     border-radius: 12px;
     display: none;
     margin: -163px 0 0 -218px;
