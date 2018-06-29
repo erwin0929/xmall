@@ -8,7 +8,7 @@
     name: 'app'
   }
 </script>
-<style lang="scss" rel="stylesheet/scss">
+<style lang="scss" type="text/scss">
   @import "assets/style/index.scss";
   #app {
     height: 100%;
@@ -23,5 +23,16 @@
   .fade-enter,
   .fade-leave-to{
     opacity: 0;
+  }
+  $np-color: #d8328c;
+  #nprogress{
+    .bar{
+      background: $np-color;
+      height: 8px;
+    }
+    .spinner-icon{
+      border-top-color: $np-color;
+      border-left-color: $np-color;
+    }
   }
 </style>
