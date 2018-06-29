@@ -1,5 +1,6 @@
 ## xmall商城解析,不完全攻略
-> 附上传送门,链接地址: https://erwin0929.github.io/xmall/#/login
+> 附上传送门,链接地址: https://erwin0929.github.io/xmall/#/login  
+> 页面加载较慢,请耐心等待
 
 > 目录结构
 
