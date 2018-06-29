@@ -55,6 +55,9 @@
 > main.js 入口文件 (节选)
 
 ```
+// 调用进度条提示
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 // 图片懒加载
 import VueLazyload from 'vue-lazyload'
 // 按需加载Elementui组件
@@ -93,7 +96,17 @@ router.beforeEach(function (to, from, next) {
   }
   let path = to.path.split('/')[1]
   // whiteList中的页面无需登录,若进入隐私页面,且没有token(未登录)则强制跳转到登录页
-  whiteList.indexOf(path) === -1 && userId === null ? next({name: 'login'}) : next()
+  if (whiteList.indexOf(path) === -1 && userId === null) {
+      next({name: 'login'})
+      NProgress.start()
+    } else {
+      NProgress.start()
+      next()
+  }
+})
+// 全局后置守卫,关闭进度条
+router.afterEach(() => {
+  NProgress.done()
 })
 /* eslint-disable no-new */
 new Vue({

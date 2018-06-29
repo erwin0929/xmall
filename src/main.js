@@ -6,6 +6,9 @@ import VueLazyload from 'vue-lazyload'
 import VueCookie from 'vue-cookie'
 import axios from 'axios'
 import data from './mock/index'
+// 调用进度条提示
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 // 按需加载Elementui组件
 import { Button, FormItem, Form, Pagination, Checkbox, Icon, Autocomplete, Loading, Message, Notification, Steps, Step, Table, TableColumn, Input, InputNumber, Dialog, Select, Option, Carousel, CarouselItem } from 'element-ui'
 Vue.use(Button)
@@ -60,7 +63,17 @@ router.beforeEach(function (to, from, next) {
   }
   let path = to.path.split('/')[1]
   // whiteList中的页面无需登录,若进入隐私页面,且没有token(未登录)则强制跳转到登录页
-  whiteList.indexOf(path) === -1 && userId === null ? next({name: 'login'}) : next()
+  if (whiteList.indexOf(path) === -1 && userId === null) {
+    next({name: 'login'})
+    NProgress.start()
+  } else {
+    NProgress.start()
+    next()
+  }
+})
+// 全局后置守卫,关闭进度条
+router.afterEach(() => {
+  NProgress.done()
 })
 /* eslint-disable no-new */
 new Vue({
