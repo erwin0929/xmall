@@ -28,8 +28,8 @@
             </ul>
             <el-checkbox class="agree" v-model="agreement">
               我已阅读并同意遵守
-              <a @click="open('法律声明','此仅为个人练习开源模仿项目，仅供学习参考，承担不起任何法律问题')">法律声明</a> 和
-              <a @click="open('隐私条款','本网站将不会严格遵守有关法律法规和本隐私政策所载明的内容收集、使用您的信息')">隐私条款</a>
+              <a @click="open('法律声明','随便写写随便写写随便写写随便写写随便写写')">法律声明</a> 和
+              <a @click="open('隐私条款','随便写写随便写写随便写写随便写写随便写写')">隐私条款</a>
             </el-checkbox>
             <div style="margin-bottom: 30px;">
               <el-button class="login-btn" type="" @click="regist" :loading="loading">{{registxt}}</el-button>
@@ -139,7 +139,8 @@ export default {
 }
 </script>
 <style lang="scss" type="text/scss" scoped>
-* {
+  $img-path: '../../assets/images/';
+  * {
   box-sizing: border-box;
 }
 .login-btn{
@@ -230,7 +231,6 @@ export default {
     }
   }
 }
-
 .dialog-shadow,
 .v2 .bbs .dialog-shadow,
 .v2 .dialog-shadow {
@@ -244,73 +244,67 @@ export default {
     0 18px 20px -10px rgba(0, 0, 0, 0.04), 0 18px 20px -10px rgba(0, 0, 0, 0.04),
     0 10px 20px -10px rgba(0, 0, 0, 0.04);
 }
-
-@media screen and (min-width: 737px),
-  screen and (-webkit-max-device-pixel-ratio: 1.9) and (max-width: 736px) and (min-device-width: 737px) {
-  .wrapper {
-    background: url(#{$img-path}con-bg_04f25dbf8e.jpg) repeat-x;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-  .dialog {
-    background: url(#{$img-path}dialog-gray-bg.png) #fff bottom repeat-x;
-    border-radius: 12px;
-    display: none;
-    margin: -163px 0 0 -218px;
-    width: 436px;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-  }
-  .dialog .title h4 {
-    border-bottom: #d1d1d1 solid 1px;
-    box-shadow: 0 2px 6px #d1d1d1;
-    color: #666;
-    font-size: 20px;
-    height: 61px;
-    line-height: 61px;
-    padding: 0 0 0 35px;
-  }
-  .common-form li {
-    clear: both;
-    margin-bottom: 15px;
-    position: relative;
-  }
-  .auto-login {
-    position: absolute;
-    top: 0px;
-    left: 2px;
-    color: #999;
-  }
-  .register {
-    padding: 1px 10px 0;
-    border-right: 1px solid #ccc;
-  }
-  .border {
-    margin-top: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  .other {
-    margin: 20px 5px 0 0;
-    width: auto;
-    color: #bbb;
-    font-size: 12px;
-    cursor: default;
-    color: #999;
-  }
-  .footer {
-    display: flex;
-    flex-direction: row;
-  }
-  .agree {
-    margin-bottom: 30px;
-    color: #999;
-  }
+.wrapper {
+  background: url(#{$img-path}con-bg_04f25dbf8e.jpg) repeat-x;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
-
+.dialog {
+  border-radius: 12px;
+  display: none;
+  margin: -163px 0 0 -218px;
+  width: 436px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+}
+.dialog .title h4 {
+  border-bottom: #d1d1d1 solid 1px;
+  box-shadow: 0 2px 6px #d1d1d1;
+  color: #666;
+  font-size: 20px;
+  height: 61px;
+  line-height: 61px;
+  padding: 0 0 0 35px;
+}
+.common-form li {
+  clear: both;
+  margin-bottom: 15px;
+  position: relative;
+}
+.auto-login {
+  position: absolute;
+  top: 0px;
+  left: 2px;
+  color: #999;
+}
+.register {
+  padding: 1px 10px 0;
+  border-right: 1px solid #ccc;
+}
+.border {
+  margin-top: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.other {
+  margin: 20px 5px 0 0;
+  width: auto;
+  color: #bbb;
+  font-size: 12px;
+  cursor: default;
+  color: #999;
+}
+.footer {
+  display: flex;
+  flex-direction: row;
+}
+.agree {
+  margin-bottom: 30px;
+  color: #999;
+}
 .registered {
   h4 {
     padding: 0;

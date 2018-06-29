@@ -136,7 +136,7 @@ export default {
 }
 </script>
 <style lang="scss" type="text/scss" scoped>
-  $img-path: '../assets/images/';
+  $img-path: '../../assets/images/';
   * {
   box-sizing: border-box;
 }
@@ -188,7 +188,7 @@ export default {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
     position: relative;
     background-image: url(#{$img-path}smartisan_4ada7fecea.png);
-    background-size: 140px;
+    background-size: 110px;
     background-position: top center;
     background-repeat: no-repeat;
     height: 92px;
@@ -246,72 +246,66 @@ export default {
     0 18px 20px -10px rgba(0, 0, 0, 0.04), 0 18px 20px -10px rgba(0, 0, 0, 0.04),
     0 10px 20px -10px rgba(0, 0, 0, 0.04);
 }
-
-@media screen and (min-width: 737px),
-  screen and (-webkit-max-device-pixel-ratio: 1.9) and (max-width: 736px) and (min-device-width: 737px) {
-  .wrapper {
-    background: url(#{$img-path}con-bg_04f25dbf8e.jpg) repeat-x;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-  .dialog {
-    background: url(#{$img-path}dialog-gray-bg.png) #fff bottom repeat-x;
-    border-radius: 12px;
-    display: none;
-    margin: -163px 0 0 -218px;
-    width: 436px;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-  }
-  .dialog .title h4 {
-    border-bottom: #d1d1d1 solid 1px;
-    box-shadow: 0 2px 6px #d1d1d1;
-    color: #666;
-    font-size: 20px;
-    height: 61px;
-    line-height: 61px;
-    padding: 0 0 0 35px;
-  }
-  .common-form li {
-    clear: both;
-    margin-bottom: 15px;
-    position: relative;
-  }
-  .auto-login {
-    position: absolute;
-    top: 0px;
-    left: 2px;
-    color: #999;
-  }
-  .register {
-    padding: 1px 10px 0;
-  }
-  .border {
-    margin-top: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  .other {
-    margin: 20px 5px 0 0;
-    width: auto;
-    color: #bbb;
-    font-size: 12px;
-    cursor: default;
-    color: #999;
-  }
-  .footer {
-    display: flex;
-    flex-direction: row;
-  }
-  .agree {
-    margin-bottom: 30px;
-    color: #999;
-  }
+.wrapper {
+  background: url(#{$img-path}con-bg_04f25dbf8e.jpg) repeat-x;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
-
+.dialog {
+  border-radius: 12px;
+  display: none;
+  margin: -163px 0 0 -218px;
+  width: 436px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+}
+.dialog .title h4 {
+  border-bottom: #d1d1d1 solid 1px;
+  box-shadow: 0 2px 6px #d1d1d1;
+  color: #666;
+  font-size: 20px;
+  height: 61px;
+  line-height: 61px;
+  padding: 0 0 0 35px;
+}
+.common-form li {
+  clear: both;
+  margin-bottom: 15px;
+  position: relative;
+}
+.auto-login {
+  position: absolute;
+  top: 0px;
+  left: 2px;
+  color: #999;
+}
+.register {
+  padding: 1px 10px 0;
+}
+.border {
+  margin-top: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.other {
+  margin: 20px 5px 0 0;
+  width: auto;
+  color: #bbb;
+  font-size: 12px;
+  cursor: default;
+  color: #999;
+}
+.footer {
+  display: flex;
+  flex-direction: row;
+}
+.agree {
+  margin-bottom: 30px;
+  color: #999;
+}
 .registered {
   h4 {
     padding: 0;
