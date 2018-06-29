@@ -32,12 +32,14 @@ Vue.prototype.$notify = Notification
 Vue.prototype.$message = Message
 Vue.use(VueCookie)
 Vue.use(VueLazyload, {
-  loading: '/src/assets/images/load.gif'
+  // loading: `./assets/images/load.gif`
+  // 这里写的是编译后的路径
+  loading: `./static/images/load.gif`
 })
 Vue.config.productionTip = false
 // 定义全局前置守卫
-// 不需要登陆的页面
-const whiteList = ['home', 'goods', 'login', 'register', 'goodsDetails', 'search', 'refreshsearch']
+// 不需要登陆的页面,开放页
+const whiteList = ['home', 'goods', 'login', 'register', 'goodsDetails', 'search']
 router.beforeEach(function (to, from, next) {
   // 设置标题
   document.title = to.meta.title
