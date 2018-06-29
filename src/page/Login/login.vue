@@ -32,7 +32,7 @@
           <div class="border"></div>
           <div class="footer">
             <div class="other">其它账号登录：</div>
-            <a><img @click="open('待开发','此功能开发中...')" style="height: 15px; margin-top: 22px;" src="/static/images/other-login.png"></a>
+            <a><img @click="open('待开发','此功能开发中...')" style="height: 15px; margin-top: 22px;" src="../../assets/images/other-login.png"></a>
           </div>
         </div>
       </div>
