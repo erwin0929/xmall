@@ -27,12 +27,12 @@
   $np-color: #d8328c;
   #nprogress{
     .bar{
-      background: $np-color;
-      height: 8px;
+      background: $np-color !important;
+      height: 8px !important;
     }
     .spinner-icon{
-      border-top-color: $np-color;
-      border-left-color: $np-color;
+      border-top-color: $np-color !important;
+      border-left-color: $np-color !important;
     }
   }
 </style>
