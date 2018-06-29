@@ -6,6 +6,7 @@ module.exports = {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
+    // 部署到服务器上的静态资源路径
     assetsSubDirectory: 'static',
     assetsPublicPath: './',
     // 生产环境不使用map文件

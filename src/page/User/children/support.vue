@@ -3,7 +3,7 @@
     <y-shelf title="售后服务">
       <div slot="content">
         <div style="padding: 100px 0;text-align: center">
-          <img src="/static/images/support.png">
+          <img src="../../../assets/images/support.png">
           <br>
           <span class="support">如有疑问请联系邮箱1012139570@qq.com</span>
         </div>

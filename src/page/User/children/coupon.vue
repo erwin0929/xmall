@@ -3,7 +3,7 @@
     <y-shelf title="我的优惠">
       <div slot="content">
         <div style="padding: 100px 0;text-align: center">
-          <img src="/static/images/no-search.png">
+          <img src="../../../assets/images/no-search.png">
           <br>
           <span class="no-discount">您目前还没有优惠券</span>
         </div>

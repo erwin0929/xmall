@@ -129,7 +129,6 @@
       display: flex;
       align-items: center;
       > a {
-        /*background: url(/static/images/global-logo-red@2x.png) no-repeat 50%;*/
         background: url(../assets/images/global-logo-red@2x.png) no-repeat 50%;
         background-size: cover;
         display: block;
@@ -209,7 +208,7 @@
           left: 8px;
           top: 0;
           @include wh(20px);
-          background: url(/static/images/account-icon@2x.32d87deb02b3d1c3cc5bcff0c26314ac.png) -155px 0;
+          background: url(../assets/images/account-icon@2x.32d87deb02b3d1c3cc5bcff0c26314ac.png) -155px 0;
           background-size: 240px 107px;
           transition: none;
         }
